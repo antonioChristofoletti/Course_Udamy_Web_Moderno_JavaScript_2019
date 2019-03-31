@@ -25,6 +25,3 @@ console.log(!!null);
 console.log(!!NaN);
 console.log(!!undefined);
 console.log(!!(isAtivo = false));
-
-console.log(!!(isAtivo = true));
-
