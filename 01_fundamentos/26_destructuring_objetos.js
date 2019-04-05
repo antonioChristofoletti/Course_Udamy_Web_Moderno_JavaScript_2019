@@ -1,7 +1,6 @@
 /*
     novo recurso do ES2015
     Um operador que serve para extrair valores de estruturas (Objecto, array e etc)
-    Ele remove mesmo, não apenas copia!!!
 */
 
 const pessoa = {
