@@ -4,10 +4,10 @@
 
 */
 
-function Pessoa(){
+function Pessoa() {
     this.idade = 0;
 
-    setInterval(() =>{
+    setInterval(() => {
         this.idade++;
         console.log(this.idade);
     }, 1000);

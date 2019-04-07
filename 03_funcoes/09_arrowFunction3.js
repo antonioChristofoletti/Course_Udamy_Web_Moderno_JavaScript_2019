@@ -8,18 +8,18 @@
 */
 
 
-let comapraComThis = function (param){
+let comparaComThis = function (param){
     console.log(this === param);
 };
 
-comapraComThis(global);
+comparaComThis(global);
 
 const obj = {};
 
-comparaComThis = comapraComThis.bind(obj);
+comparaComThis = comparaComThis.bind(obj);
 
-comapraComThis(global);
-comapraComThis(obj);
+comparaComThis(global);
+comparaComThis(obj);
 
 let comparaComThisArrow = (param) => console.log(this === param);
 

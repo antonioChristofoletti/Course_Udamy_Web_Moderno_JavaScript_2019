@@ -1,9 +1,3 @@
-/*
-    JavaScript pode pegar os parametros dinamicamente, uma solução bem sofisticada e potente, porém
-    tem que prestar atenção na utilização
-
-*/
-
 // estrategia 1 para gerar valor padrao
 function soma1(a,b,c){
     a = a || 1;
