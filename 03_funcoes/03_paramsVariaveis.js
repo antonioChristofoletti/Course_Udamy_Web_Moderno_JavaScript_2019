@@ -1,9 +1,7 @@
 /*
     JavaScript pode pegar os parametros dinamicamente, uma solução bem sofisticada e potente, porém
     tem que prestar atenção na utilização
-
 */
-
 
 function soma(){
     let soma = 0;

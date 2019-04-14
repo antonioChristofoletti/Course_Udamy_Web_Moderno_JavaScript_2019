@@ -1,11 +1,11 @@
-function Pokemon(tipo = "Normal"){
-    this.retornaEstrutura = function(){
-        console.log(tipo);
-    }
+function funcaoTeste() {
+    this.meuValor = "Y";
+
+    this.veredito = () => {
+        //console.log(this.meuValor);
+    };
 }
 
-charmander = new Pokemon();
+let meuObjeto = new funcaoTeste().veredito;
 
-charmander.retornaEstrutura();
-
-console.log(charmander);
+console.log(meuObjeto());

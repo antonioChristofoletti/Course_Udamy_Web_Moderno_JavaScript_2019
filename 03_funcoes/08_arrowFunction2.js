@@ -1,7 +1,6 @@
 
 /*
     Arrow function não varia o this, logo, não precisa usar bind nem a técnica SELF
-
 */
 
 function Pessoa() {
