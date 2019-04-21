@@ -1,30 +1,18 @@
-//Factory Function
-function getCarro(nome, marca, velocidadeMaxima = 150) {
+function getMamifero(){
+
     return {
-        nome,
-        marca,
-        velocidadeMaxima
+        nome: "Mamifero",
+        amamentar(){
+            console.log("Por leite....");
+        }
     }
 }
 
-console.log(getCarro("Ferrari V1", "Ferrari", 300));
-
-// Class
-class ClassCarro {
-    constructor(nome, marca, velocidadeMaxima = 150) {
-        this.nome = nome;
-        this.marca = marca;
-        this.velocidadeMaxima = velocidadeMaxima;
+function getHumano(protocoloRef){
+    return {
+        sobrenome: "Christofoletti",
+        __proto__: protocoloRef
     }
 }
 
-console.log(new ClassCarro("Ferrari V1", "Ferrari", 300));
-
-// Constructor Function
-function FunctionCarro(nome, marca, velocidadeMaxima = 150) {
-    this.nome = nome;
-    this.marca = marca;
-    this.velocidadeMaxima = velocidadeMaxima;
-}
-
-console.log(new FunctionCarro("Ferrari V1", "Ferrari"));
+console.log(getHumano(getMamifero()).nome);
