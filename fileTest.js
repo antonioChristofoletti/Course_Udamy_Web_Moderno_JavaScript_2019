@@ -1,30 +1,21 @@
-function pokemon(){
-    this.primeiroNome = "Pika",
+class Pai{
+    constructor(sobrenome){
+        this.sobrenome = sobrenome;
+    }
 
-    this.darSobrenome = function (sobreNome){
-        console.log(`${this.primeiroNome + sobreNome}`);
+    getSobrenome(){
+        console.log(`O seu sobrenome é: ${this.sobrenome}`)
     }
 }
 
-let meuPokemon = new pokemon();
+class Filho extends Pai{
+    constructor(sobrenome, nome){
+        super(sobrenome);
 
-console.log(meuPokemon);
+        this.nome = nome;
+    }
+}
 
-//1##
-let funcaoDarSobreNome = meuPokemon.darSobrenome;
+let meuFilho = new Filho("Cunha", "Antonio");
 
-funcaoDarSobreNome("chu");
-
-//2##
-
-funcaoDarSobreNome = meuPokemon.darSobrenome.bind(meuPokemon);
-
-funcaoDarSobreNome("chu");
-
-//3##
-
-meuPokemon.darSobrenome.call(meuPokemon, "chu");
-
-//4##
-
-meuPokemon.darSobrenome.call(meuPokemon, ["chu"]);
+meuFilho.getSobrenome();
