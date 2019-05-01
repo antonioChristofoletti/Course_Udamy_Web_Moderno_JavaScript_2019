@@ -1,4 +1,4 @@
-// Formas de deixar
+// formas de deixar a variável/função/classe visivel
 
 this.ola = "Fala Pessoal";
 
