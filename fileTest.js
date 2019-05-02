@@ -1,54 +1,39 @@
-const notas = [
+const fs = require('fs');
+
+const caminhoArquivo = __dirname + "/meuArquivo.json";
+
+let bd = {
+    port: 1455,
+    host: "localhost",
+    user: "sa",
+    password: "123456"
+};
+
+fs.writeFile(caminhoArquivo, JSON.stringify(bd), err =>{
+    if(err != null)
     {
-        data: '2017-10-31',
-        itens: [
-            { conta: '2143', valor: 200 },
-            { conta: '2111', valor: 500 }
-        ]
-    },
-    {
-        data: '2017-07-12',
-        itens: [
-            { conta: '2222', valor: 120 },
-            { conta: '2143', valor: 280 }
-        ]
-    }, 
-    {
-        data: '2017-02-02',
-        itens: [
-            { conta: '2143', valor: 110 },
-            { conta: '2111', valor: 390 }
-        ]
-    },     
-];
+        console.log('Erro ao criar o arquivo. Erro: ' + err);
+        return;
+    }
 
-Array.prototype.flatMap = function(callbackMap){
+    // lendo e convertendo diretamente para Object - SINCRONO
+    let lendoBD = require(caminhoArquivo);
+    console.log(lendoBD);
 
-    let resultadoMap = this.map(callbackMap);
+    // apenas lendo - ASSINCRONO
+    fs.readFile(caminhoArquivo, "UTF-8", (err, conteudo)  =>{
+        if(err != null)
+        {
+            console.log('Erro ao ler o arquivo. Erro: ' + err);
+            return;
+        }
+    
+        conteudo = JSON.parse(conteudo);
+    
+        console.log(conteudo);
+    })
 
-    return resultadoMap.reduce( (newArrayFlat, subArray) => newArrayFlat.concat(subArray), []);
-}
-
-
-let func_trairNota = conta => conta.conta == "2111";
-let func_somarValor = (somatoria, conta) => somatoria + conta.valor;
-
-let func_calcularImposto = (somatoria, conta) => somatoria + (conta.valor * 0.15);
-
-let somatoriaFinal = notas
-                     .flatMap( nota => nota.itens)
-                     .filter(func_trairNota)
-                     .reduce(func_somarValor, 0);
-
-let calculoImposto = notas
-                     .flatMap( nota => nota.itens)
-                     .filter(func_trairNota)
-                     .reduce(func_calcularImposto, 0);
-
-let impostoTotal = notas
-                     .flatMap( nota => nota.itens)
-                     .reduce(func_calcularImposto, 0);
-
-console.log(`O resultado final é.............: ${somatoriaFinal}`);
-console.log(`O imposto sobre a nota X é......: ${calculoImposto}`);
-console.log(`O imposto sobre todas as notas é: ${impostoTotal}`);
+    // apenas lendo - SINCRONO
+    let resultado = fs.readFileSync(caminhoArquivo, "UTF-8");
+    console.log(resultado);
+});

@@ -11,6 +11,8 @@ const axios = require("axios");
 
 //Exercício encontrar uma chinesa, mulher e que possua o menor salário
 
+// Resolucao do professor
+
 const chineses = f => f.pais == "China";
 const mulheres = f => f.genero == "F";
 const menorSalario = (func, funcAtual) => {
@@ -27,8 +29,6 @@ axios.get(url).then(response => {
 
     console.log(func);
 });
-
-// Resolucao do professor
 
 // Minha resolução
 
@@ -66,4 +66,3 @@ axios.get(url).then(response => {
         });
     }
 });
-
