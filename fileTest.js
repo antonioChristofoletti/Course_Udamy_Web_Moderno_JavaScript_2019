@@ -1,39 +1,36 @@
-const fs = require('fs');
+// testando a implementação do chain of responsability
 
-const caminhoArquivo = __dirname + "/meuArquivo.json";
-
-let bd = {
-    port: 1455,
-    host: "localhost",
-    user: "sa",
-    password: "123456"
+const middleware1 = (ctx, next) => {
+    console.log("Faz o que tem que ser feito na função 1");
+    ctx.funcao1 = "PASSOU";
+    next();
 };
 
-fs.writeFile(caminhoArquivo, JSON.stringify(bd), err =>{
-    if(err != null)
-    {
-        console.log('Erro ao criar o arquivo. Erro: ' + err);
-        return;
-    }
+const middleware2 = (ctx, next) => {
+    console.log("Faz o que tem que ser feito na função 2");
+    ctx.funcao2 = "PASSOU";
+    next();
+};
 
-    // lendo e convertendo diretamente para Object - SINCRONO
-    let lendoBD = require(caminhoArquivo);
-    console.log(lendoBD);
+const middleware3 = (ctx) => {
+    console.log("Faz o que tem que ser feito na função 3 ");
+    ctx.funcao3 = "PASSOU";
+};
 
-    // apenas lendo - ASSINCRONO
-    fs.readFile(caminhoArquivo, "UTF-8", (err, conteudo)  =>{
-        if(err != null)
-        {
-            console.log('Erro ao ler o arquivo. Erro: ' + err);
-            return;
-        }
-    
-        conteudo = JSON.parse(conteudo);
-    
-        console.log(conteudo);
-    })
+const exec = (ctx, ...middlewares) => {
 
-    // apenas lendo - SINCRONO
-    let resultado = fs.readFileSync(caminhoArquivo, "UTF-8");
-    console.log(resultado);
-});
+    if (middlewares.length == 0) return;
+
+    const execPasso = (indice) => {
+
+        if (indice > middlewares.length) return;
+
+        middlewares[indice](ctx, () => execPasso(indice + 1));
+    };
+
+    execPasso(0);
+};
+
+let ctx = {};
+
+exec(ctx, middleware1, middleware2, middleware3);
