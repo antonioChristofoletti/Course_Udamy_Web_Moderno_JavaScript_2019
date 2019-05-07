@@ -1,36 +1,46 @@
-// testando a implementação do chain of responsability
+let chainElement1 = (ctx, next) => {
+    console.log("Faz o que tem que fazer no CHAIN ELEMENTO 1");
 
-const middleware1 = (ctx, next) => {
-    console.log("Faz o que tem que ser feito na função 1");
-    ctx.funcao1 = "PASSOU";
-    next();
-};
+    ctx.elemento1 = "Passou aqui em!!";
 
-const middleware2 = (ctx, next) => {
-    console.log("Faz o que tem que ser feito na função 2");
-    ctx.funcao2 = "PASSOU";
-    next();
-};
+    if (next)
+        next();
+}
 
-const middleware3 = (ctx) => {
-    console.log("Faz o que tem que ser feito na função 3 ");
-    ctx.funcao3 = "PASSOU";
-};
+let chainElement2 = (ctx, next) => {
+    console.log("Faz o que tem que fazer no CHAIN ELEMENTO 2");
 
-const exec = (ctx, ...middlewares) => {
+    ctx.elemento2 = "Passou aqui em!!";
 
-    if (middlewares.length == 0) return;
+    if (next)
+        next();
+}
 
-    const execPasso = (indice) => {
+let chainElement3 = (ctx, next) => {
+    console.log("Faz o que tem que fazer no CHAIN ELEMENTO 3");
 
-        if (indice > middlewares.length) return;
+    ctx.elemento3 = "Passou aqui em!!";
 
-        middlewares[indice](ctx, () => execPasso(indice + 1));
+    if (next) 
+        next();
+}
+
+let chainExec = (ctx, ...chainElements) => {
+
+    if (!chainElements || !ctx) return;
+
+    let chainProcess = indice => {
+
+        if (indice >= chainElements.length) return;
+
+        chainElements[indice](ctx, () => { chainProcess(indice + 1); });
     };
 
-    execPasso(0);
-};
+    chainProcess(0);
+}
 
 let ctx = {};
 
-exec(ctx, middleware1, middleware2, middleware3);
+chainExec(ctx, chainElement1, chainElement2, chainElement3)
+
+console.log(ctx);

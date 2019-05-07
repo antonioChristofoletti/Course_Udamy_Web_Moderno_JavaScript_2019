@@ -1,16 +1,15 @@
 {
-  "name": "funcionarios",
+  "name": "16_temporizador",
   "version": "1.0.0",
-  "description": "sem descrição",
-  "main": "funcionarios.js",
+  "description": "",
+  "main": "temporarizador.js",
   "scripts": {
-    "start": "nodemon",
-    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "0.18.0"
+    "node-schedule": "1.3.0"
   }
 }
