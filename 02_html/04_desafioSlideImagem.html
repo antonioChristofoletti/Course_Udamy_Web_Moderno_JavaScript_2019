@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div slider style="background-color: red; width: 100%; height: 500px;">
+        <img style="width: 500px; height: 500px; background-color: aqua">
+        <img style="width: 500px; height: 500px; background-color: red">
+        <img style="width: 500px; height: 500px; background-color: green">
+        <img style="width: 500px; height: 500px; background-color: grey">
+        <img style="width: 500px; height: 500px; background-color: royalblue">
+        <img style="width: 500px; height: 500px; background-color: seagreen">
+        <img style="width: 500px; height: 500px; background-color: skyblue">
+        <img style="width: 500px; height: 500px; background-color: tomato">
+    </div>
+
+    <script>
+
+        let processarSlider = (slider, listaElementos, milissegundos = 10, incrementoPosicao = 20) => {
+
+            if (listaElementos.length == 0) return;
+
+            if (slider == null || slider == undefined) return;
+
+            listaElementos.forEach(e => {
+                e.style.position = "absolute";
+                e.style.display = "none";
+            });
+
+            let indiceElementoAtual = 0;
+            let elementoAtual = listaElementos[indiceElementoAtual];
+
+            window.setInterval(() => {
+
+                elementoAtual.style.display = "block";
+
+                let posicaoAtualElemento = elementoAtual.style.left;
+                posicaoAtualElemento = posicaoAtualElemento.substring(0, posicaoAtualElemento.length - 2);
+
+                if (posicaoAtualElemento == "") posicaoAtualElemento = 0;
+
+                let novaPosicao = (parseInt(posicaoAtualElemento) + incrementoPosicao);
+
+                let sliderPositionInfo = slider.getBoundingClientRect();
+                if (novaPosicao > (slider.offsetWidth - sliderPositionInfo.left - elementoAtual.offsetWidth)) {
+                    elementoAtual.style.left = (slider.offsetWidth - - sliderPositionInfo.left - elementoAtual.offsetWidth) + "px";
+
+                    elementoAtual.style.display = "none";
+                    elementoAtual.style.left = "0px";
+
+                    if (++indiceElementoAtual >= listaElementos.length)
+                        indiceElementoAtual = 0;
+
+                    elementoAtual = listaElementos[indiceElementoAtual];
+                    elementoAtual.style.display = "block";
+                }
+                else
+                    elementoAtual.style.left = novaPosicao + "px";
+
+            }, milissegundos);
+        };
+
+        document.querySelectorAll("[slider]").forEach(slider => {
+            processarSlider(slider, slider.querySelectorAll("img"), 10, 10);
+        });
+
+
+    </script>
+</body>
+
+</html>

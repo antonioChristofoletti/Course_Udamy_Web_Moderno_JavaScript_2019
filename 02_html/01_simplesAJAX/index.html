@@ -1,0 +1,37 @@
+<!-- Importante ter o http-node para 'simular' o funcionamento de um servidor, excelencia para os tester com -->
+
+<!DOCTYPE html>
+
+<html lang='PT-BR'>
+
+<head>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <a href="link1.html">LINK 1</a>
+    <a href="link2.html">LINK 2</a>
+
+    <div id="RECEBE_AJAX">
+
+    </div>
+
+    <script>
+        document.querySelectorAll('a').forEach(elemento => {
+            elemento.onclick = (evento) => {
+                evento.preventDefault();
+
+                console.log(elemento.href);
+
+                //Fetch faz a requisição e trabalha com PROMISE, o resto é o simples
+                fetch(elemento.href)
+                    .then(r => r.text())
+                    .then(html => document.getElementById("RECEBE_AJAX").innerHTML = html)
+                    .catch(e => alert(`Erro ao realizar a requisição. Erro: ${e.message}`));
+            };
+        });
+
+    </script>
+</body>
+
+</html>

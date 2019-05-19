@@ -13,7 +13,12 @@ const getTurma = (letra, callback) => {
             });
 
             res.on('end', dados => {
-                resolve(JSON.parse(resultado));
+                try {
+                    resolve(JSON.parse(resultado));
+                }
+                catch (e) {
+                    reject(e);
+                }
             });
         });
     });
@@ -21,17 +26,24 @@ const getTurma = (letra, callback) => {
 
 let nomes = [];
 
-getTurma('A', )
 
-getTurma('A', alunos => {
+getTurma('A').then(alunos => {
     nomes = nomes.concat(alunos.map(a => `A: ${a.nome}`));
 
-    getTurma('B', alunos => {
+    getTurma('B').then(alunos => {
         nomes = nomes.concat(alunos.map(a => `B: ${a.nome}`));
 
-        getTurma('C', alunos => {
+        getTurma('C').then(alunos => {
             nomes = nomes.concat(alunos.map(a => `C: ${a.nome}`));
             console.log(nomes);
         });
     });
 });
+
+Promise.all([getTurma('A'), getTurma('B'), getTurma('C')])
+    .then(turmas => [].concat(...turmas))
+    .then(alunos => alunos.map(aluno => aluno.nome))
+    .then(nomes => console.log(nomes));
+
+
+getTurma('D').catch(e => console.log(e.message));

@@ -1,0 +1,197 @@
+###### HISTORICO #######
+
+1950s - Computadores eletronicos
+
+1960s - ARPANET - Departamento de Defesa Americado
+
+1970s - TCP/IP - Robert E. Kahn & Vinct Cerf
+
+1980s - WWW Tim Berners-Lee
+
+1990s - Internet do Brasil
+
+2000s - IG, Redes Sociais e etc
+
+###### INTERNET #######
+
+Internet tem uma topologia distribuida (Muito mais seguro)
+
+###### TCP/IP #######
+
+TCP: Protocolo orientado a conexão confiável
+IP: Protocolo responsável pelo roteamento. Baseado em layers.
+
+Camadas:
+Aplicação: HTTP, FTP, SMTP, Comunicação Processo-A-Processo, Número da Porta
+Transporte: TCP, UDP, Comunicação Host-a-Host, Confiabilidade, Integridade
+Internet: IP, Conexão entre Redes, Transferencia de Pacotes 
+Física: Ethernet, Wi-fi, MAC Address  = (MODELO OSI: Física e Enlace)
+
+###### Anatomia do IPV4 ######
+
+R = Rede, H = Host 
+
+Classe A:           192.168.100.230
+                    RRR.HHH.HHH.HHH
+Máscara de SubRede: 255.000.000.000
+
+Classe B:           192.168.100.230
+                    RRR.RRR.HHH.HHH
+Máscara de SubRede: 255.255.000.000
+
+Classe C:           192.168.100.230
+                    RRR.RRR.RRR.HHH
+Máscara de SubRede: 255.255.255.000
+
+Conceito de Porta: Corresponde a um serviço ou aplicação que está operando nessa Porta
+
+###### Protocolo HTTP: HyperText Transfer Protocol ######
+
+Caracteristicas:
+    * Faz parte da camada de aplicação;
+    * Stateless: As comunicações são independentes;
+    * Protocolo do tipo cliente-servidor.
+
+Fluxo:
+    -> Usuário informa a URL
+    -> Browser gera a requisição
+    -> Servidor Web Gera a Resposta
+    -> Browser Exibe a Página
+
+Métodos do HTTP: Get, post, put,delete, trace, options, connect, head
+
+Grupo de Status HTTP:
+    -> 1XX - Informação
+    -> 2XX - Sucesso
+    -> 3XX - Redirecionamento
+    -> 4XX - Erro no cliente
+    -> 5XX - Erro no Servidor
+
+###### SERVIDORES WEB ######
+
+Virtual Hosting: Varios serviços web em uma mesma máquina ou várias máquinas atendendo a um único site por exemplo;
+
+Estruturas de Pastas: Da para colocar em servidores especializados os arquivos estáticos
+
+Web Stack: SO, DB, Web Server, Linguagem de Programação
+    -> Stack mais famosa: LAMP ou WAMP
+
+###### CLIENTE SIDE VS SERVER SIDE ######
+
+1º MainFrame, terminais burros, tudo o mainframe faz.
+
+2º Client-side: A Aplicação central fica no próprio cliente, o cliente acessa o banco de dados. 
+A aplicação do cliente processa muitas coisas, o servidor geralmente apenas ficava com o banco de dados.
+Principal problema seria na hora de atualizar os clientes.
+
+3º Server-side: O cliente manda as requisições para serem processadas pelo servidor. O cliente fica com o trabalho de renderização de página e algumas lógicas mais simples,
+passadas previamente pelo servidor
+
+4° Client-side + services: SPA (Single Page Application), o cliente tem o poder de ser autonomo até certo ponto, porém, a interação com o servidor continua existindo
+Por exemplo, uma aplicação com o framework React renderiza e tem autonomia de trocar de páginas sem consultar o servidor por exemplo, porém na hora de trazer alguma informação,
+existe uma comunicação com um web service.
+
+###### CONTEUDO ESTATICO VS CONTEUDO DINAMICO ######
+
+Conteúdo Estático: Os arquivos já existem no servidor e são transferidos para o browser;
+Conteúdo Dinâmico: Gerado Dinâmicamente pelo servidor.
+
+Obs.: Essa questão pode ser questionada, tudo depende do contexto que está sendo análisado como, por exemplo: analisando a partir do servidor e analisando a partir do
+ambiente do cliente (browser)
+
+###### DNS ######
+
+DNS: Servidores responsáveis por traduzir os nomes de domínios em endereços IPs. Funciona sobre o protocolo UDP na porta 53.
+
+Funcionamento Básico do DNS
+
+1 - Usuário Informa o endereço no browser;
+2 - Computador envia uma consulta DNS para o servidor Local;
+3 - O Servidor responde com o endereço IP;
+4 - Computador acessa o servidor a partir do IP obtido.
+
+Tipos de busca:
+    -> Busca Recursiva: Pesquisa de servidor DNS a servidor DNS até encontrar o endereço IP correto. O servidor inicial responde para o cliente no final. Quando o servidor descobre 
+    o IP de um servidor, ele guarda o IP;
+    -> Busca Iterativa: O servidor DNS retorna um endereço de outro DNS que poderá responder tal pergunta, em seguida, o cliente pergunta para o outro DNS.
+
+DNS Records
+    -> A - IPV4;
+    -> AAAA - IPV6;
+    -> MX - Servidor de e-mail;
+    -> NS - Servidor DNS;
+    -> CNMAE - Canonical Name (Apelido).
+
+###### HTTPS ######
+
+Existem de duas versões:
+    -> HTTP + TLS: Versão mais recente;
+    -> HTTP + SSL: Versão mais antiga.
+
+Certificado <> Protocolo: Os certificados usam os protocolos TLS e SSL;
+
+Informações Importantes:
+    -> Dados criptografados usando os protocolos TLS ou SSL;
+    -> Protege contra inteceptação (MITM);
+    -> Criptografa todas as informações: URL, cookies e headers;
+    -> Usa certificados digitais.
+
+Autoridade Certificadoras (CA em inglês)
+    -> Organizações que emitem e validam os certificados;
+    -> Sempre tem a chave pública e privada tanto do cliente quanto do servidor, somente a pública do servidor consegue discriptar a privada do cliente e vice-versa
+
+###### Web Service ######
+
+É um serviço web, é um tipo de aplicação que proverá um serviço.
+
+Os dois modelos:
+    -> SOAP (Simple Object Access Protocol): Mais burocratico e antigo
+        -> WSDL (Web Service Services Description Language): Descreve as funcionalidades, os métodos, os atributos, descreve bem e deixa bem amarrado;
+        -> Baseado em XML;
+        -> Também conhecido como RPC (Remote Procedure Call): 
+    
+    -> REST (Representational State Transfer):
+        -> JSON;
+        -> HTTP;
+        -> Mais simples
+
+###### Arquitetura de Sistemas ######
+    -> Monolitica: Aplicação tradicional, tipo um ERP. Não há módulos separados, só existe uma única aplicação.
+
+    -> SOA (Software oriented architecture): Um tipo de arquitetura, na qual o negócio (contexto) em si é quebrado em diversas partes menores que realizam alguma atividade. 
+    Sempre há um ESB (Enterprise Service Bus) que gerencia a comunicação entre os clientes e os serviços. Há muita dependencia com o ESB
+
+    -> MicroServiços: É um conceito mais moderno, a proposta é a mesma do SOA, porém, a ideia é não existir um ESB, decentralizar é a palavra chave
+        -> Serviços menores;
+        -> Maior dificuldade no deploy, uma vez que tá tudo separado;
+        -> Maior autonomia e facilidade de adequação, visto que, não existe um ESB no caminho.
+        -> Algumas Caracteristicas
+            -> Componentização: Capacidade de simplificar e desenvolver um módulo de tal forma que o mesmo possa ser transferido ou trocado sem grandes problemas.
+            -> Equipes Menores e mais especializadas: Não se trata apenas de arquitetura, mas também de equipes. A Ideia é de criar equipes especialitas responsáveis pelo microserviço
+            -> Nada de centralização da comunicação através de um componenten como um EBS, a comunicação é direta com o microserviço (Dai entre o RestFull WS);
+            -> Decentralização: Ninguém compartilha o banco de dados, por exemplo, cada um tem que ter o seu próprio, justamente visando a descentralização;
+            -> Falhas vão acontecer, importante a equipe saber trabalhar com isso.
+
+
+SOA vs MicroServiços:
+    -> Diferentes Opiniões:
+        -> Alguns falam que é a mesma coisa, só muda algumas coisinhas;
+        -> Alguns falam que a única diferença entre SOA e microserviços é a ESB;
+        -> Alguns tem a concepção de que microserviço é uma ramificação do SOA. Logo, todo microserviço é um SOA, contudo, nem todo SOA é implementado em SOA
+
+###### COMPUTAÇÃO EM NUVEM ######
+
+Conceituação Simples: Computação em servidores disponiveis na internet a partir de diferentes regiões e provedores
+
+-> Sob demanda;
+-> Escalabilidade;
+-> Virtualização de sistemas.
+
+Inspirado no mundo real, serviços como: energia elétrica, supermercado, TV a cabo, telefone e etc.
+
+Classificações:
+    -> Infraestrutura como Serviço (IaaS): Oferece os serviços básicos, armazenamento, processamento, segurança, comunicação e etc (Infraestrutura mesmo);
+    -> Plataforma como Serviço (PaaS): Oferece o ambiente para que os desenvolvedores consigam criar e hospedar as aplicações sem grandes transtornos, 
+    tudo é gerenciado de forma escalável e automática
+    -> Sistemas como Serviço(SaaS): Sistemas abstratos que podem ser aplicados para muitos usuários como, por exemplo: Gmail, Google Docs e etc. 
+    A ideia que o cliente não precise se preocupar com nada. O sistema não é comprado, o cliente paga mensalidade. 

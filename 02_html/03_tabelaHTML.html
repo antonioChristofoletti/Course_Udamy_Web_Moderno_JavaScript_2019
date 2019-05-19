@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+
+        table{
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #eeeeee;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        thead th {
+            padding: 10px 15px;
+            background-color: #e53935;
+            color: #f5f5f5;
+            font-weight: 500;
+        }
+
+        tbody tr:nth-child(odd){
+            background-color: #fafafa;
+        }
+
+        tbody tr:nth-child(even){
+            background-color: #eeeeee;
+        }
+
+        tbody tr:hover{
+            background-color: #bdbdbd;
+        }
+
+        tbody tr td {
+            padding: 5px 15px;
+        }
+
+        tfoot {
+            border-top: 3px solid #e53935;
+            border-bottom: 3px solid #e53935;
+        }
+
+        tfoot tr td {
+            padding: 5px 15px;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Produto
+                </th>
+                <th>
+                    Quantidade
+                </th>
+
+                <th>
+                    Preço
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Parafuso
+                </td>
+                <td>
+                    20
+                </td>
+
+                <td>
+                    20,99
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Parafuso
+                </td>
+                <td>
+                    20
+                </td>
+
+                <td>
+                    20,99
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Parafuso
+                </td>
+                <td>
+                    20
+                </td>
+
+                <td>
+                    20,99
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    Total:
+                </td>
+
+                <td>
+                    62,97
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>

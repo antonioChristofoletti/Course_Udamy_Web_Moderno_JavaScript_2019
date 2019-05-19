@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <p style="color: red; text-decoration: underline; margin: 0px; padding: 0px;">Pasta pai</p>
+            <ul>
+                <li>
+                    <p style="color: red; text-decoration: underline">Pasta pai</p>
+                    <ul>
+                        <li>Folter Filho</li>
+                        <li>Folter Filho</li>
+                        <li>Folter Filho</li>
+                    </ul>
+                </li>
+                <li>Folter Filho</li>
+                <li>Folter Filho</li>
+                <li>Folter Filho</li>
+            </ul>
+        </li>
+        <li>Folter Filho</li>
+        <li>Folter Filho</li>
+        <li>Folter Filho</li>
+        <li>
+            <p style="color: red; text-decoration: underline">Pasta pai</p>
+            <ul>
+                <li>Folter Filho</li>
+                <li>Folter Filho</li>
+                <li>Folter Filho</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+
+        let pastas = document.querySelectorAll("p").forEach(e => {
+            e.onclick = () => {
+                if (e.nextElementSibling.style.display == "none")
+                    e.nextElementSibling.style.display = "block";
+                else
+                    e.nextElementSibling.style.display = "none";
+            };
+        })
+    </script>
+</body>
+
+</html>

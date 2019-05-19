@@ -1,9 +1,11 @@
-06_node/03_usandoBibliotecasDeTerceiros/node_modules
+01_JavaScript/06_node/03_usandoBibliotecasDeTerceiros/node_modules
 
-06_node/06_package.json/node_modules
+01_JavaScript/06_node/06_package.json/node_modules
 
-06_node/11_instalandoDependenciasEScripts/node_modules
+01_JavaScript/06_node/11_instalandoDependenciasEScripts/node_modules
 
-06_node/15_projetoExpress/node_modules
+01_JavaScript/06_node/15_projetoExpress/node_modules
 
-06_node/16_temporizador/node_modules
+01_JavaScript/06_node/16_temporizador/node_modules
+
+02_html/04_formulario/node_modules
