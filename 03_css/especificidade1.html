@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Especificidade CSS</title>
+    <style>
+        /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /*
+            Em linhas gerais: NaN NaN NaN;
+
+            1. Regra com !important;
+            2. seletores mais especificos;
+            3. Última regra processada (empate).
+        
+        */
+
+        p{
+            background-color: #aaa;
+        }
+
+        .observacao {
+            background-color: #5F5;
+            border: 5px dashed;
+            padding: 200px;
+            font-size: 40px;
+        }
+
+        p.observacao {
+            padding: 2px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <p class='observacao'>Olha essa observação!!!!</p>
+</body>
+
+</html>

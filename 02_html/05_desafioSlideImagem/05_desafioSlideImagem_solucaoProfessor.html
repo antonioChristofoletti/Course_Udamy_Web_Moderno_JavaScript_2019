@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div slider style="background-color: red; width: 100%; height: 500px;">
+        <img style="width: 500px; height: 500px; background-color: aqua; display: none; position: absolute">
+        <img style="width: 500px; height: 500px; background-color: black; display: none; position: absolute">
+    </div>
+
+
+    <form action="">
+
+        <label for="">gfdgdfgdfgdfg</label>
+
+        <button>fdsfsdfsdfsdfsdfsd</button>
+
+    </form>
+
+    <script>
+
+        let passarSlides = (elemento, inicio, fim, passo, callback) => {
+            inicio -= passo;
+
+            if (inicio >= fim) {
+                elemento.style.left = `${inicio}px`;
+
+                setTimeout(() => passarSlides(elemento, inicio, fim, passo, callback), 1);
+            } else
+                callback();
+        };
+
+        let slider = (elementoAtual, listaElementos) => {
+
+            elementoAtual.style.display = "block";
+            elementoAtual.style.position = "absolute";
+
+            let teste = `${innerWidth}px`;
+
+            elementoAtual.style.left = teste;
+
+            let inicio = innerWidth;
+            let fim = - elementoAtual.clientWidth;
+
+            passarSlides(elementoAtual, inicio, fim, 100, () => {
+
+                elementoAtual.style.display = "none";
+
+                let proximoElemento = getNextElement(elementoAtual, listaElementos);
+
+                slider(proximoElemento, listaElementos);
+            });
+        };
+
+        let getNextElement = (elementoAtual, listaElementos) => {
+            
+            let nextIndex = listaElementos.indexOf(elementoAtual) + 1;
+
+            if (nextIndex >= listaElementos.length)
+                return listaElementos[0];
+
+            return listaElementos[nextIndex];
+        };
+
+        let elementos = Array.from(document.querySelectorAll('[slider] > img'));
+
+        slider(elementos[0], elementos);
+
+    </script>
+</body>
+
+</html>

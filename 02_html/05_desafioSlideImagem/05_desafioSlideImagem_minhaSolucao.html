@@ -20,11 +20,6 @@
     <script>
 
         let processarSlider = (slider, listaElementos, milissegundos = 10, incrementoPosicao = 20) => {
-
-            if (listaElementos.length == 0) return;
-
-            if (slider == null || slider == undefined) return;
-
             listaElementos.forEach(e => {
                 e.style.position = "absolute";
                 e.style.display = "none";
@@ -46,7 +41,7 @@
 
                 let sliderPositionInfo = slider.getBoundingClientRect();
                 if (novaPosicao > (slider.offsetWidth - sliderPositionInfo.left - elementoAtual.offsetWidth)) {
-                    elementoAtual.style.left = (slider.offsetWidth - - sliderPositionInfo.left - elementoAtual.offsetWidth) + "px";
+                    elementoAtual.style.left = (slider.offsetWidth - sliderPositionInfo.left - elementoAtual.offsetWidth) + "px";
 
                     elementoAtual.style.display = "none";
                     elementoAtual.style.left = "0px";
