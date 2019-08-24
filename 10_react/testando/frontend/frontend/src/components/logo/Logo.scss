@@ -1,0 +1,16 @@
+@import "../../assets/scss/styleSASS.scss";
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 55px;
+
+    border-radius: 50px;
+    background-color: $white-normal;
+
+    svg {
+        color: $primary-color;
+    }
+}

@@ -1,0 +1,18 @@
+@import "../../assets/scss/styleSASS.scss";
+
+@media (min-width: $md) and (max-width: calc(#{$md} + 200px)){
+    .home{
+        .card{
+            
+            .card-body{
+                padding-right: 5px;
+                padding-left: 5px
+            }
+
+            .card-title{
+                font-size: .9rem;
+            }
+        }
+    }
+}
+

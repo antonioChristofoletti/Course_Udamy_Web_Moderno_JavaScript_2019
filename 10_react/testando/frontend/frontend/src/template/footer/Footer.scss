@@ -1,0 +1,38 @@
+@import "../../assets/scss/styleSASS.scss";
+
+.footer{
+     background-color: $grey-700;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     padding-right: 15px;
+     
+     &__item{
+        margin: 0;
+        padding: 0 25px;
+        display: block;
+        
+        &__title{
+            margin: 0 0 2px 0;
+            padding: 0;
+           font-size: 17px;
+           font-weight: bold;
+           color: $grey-200;
+        }
+
+        &__subtitle{
+            display: inline-block;
+            margin: 0 15px 0px 0;
+            padding: 0;
+            font-size: 14px;
+            text-decoration: none;
+            color: $grey-200;
+
+            &:hover{
+                color: $white-normal;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        }
+     }
+}

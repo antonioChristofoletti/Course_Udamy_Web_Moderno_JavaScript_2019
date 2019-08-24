@@ -1,0 +1,17 @@
+.calculator__button{
+    background-color: #fff;
+    outline: none;
+    margin: 0;
+    border: 0.5px solid #9e9e9e;
+    color: #000;
+    font-size: 1.1em;
+}
+
+.calculator__button:active{
+    background-color: #bdbdbd;
+}
+
+.calculator__button--operation{
+    color: #fff;
+    background-color: #f57c00;
+}

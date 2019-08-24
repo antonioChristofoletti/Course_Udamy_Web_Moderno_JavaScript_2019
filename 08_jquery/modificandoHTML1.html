@@ -13,8 +13,32 @@
     <div id='conteudo1'></div>
     <div id='conteudo2'></div>
     <div id='conteudo3'></div>
+    <div>Olá</div>
 
     <script>
-        // ...
+
+        // Conteudo 1
+        $('#conteudo1').append('<p>1<p/>')
+
+        // Conteudo 2
+        const elementos = [
+            $('<li><li/>').append('Arroz'),
+            $('<li>').append('FeiJão'),
+            $('<li>').append('Carne')
+        ]
+
+        const lista = $('<ul><li>Sorvete</li></ul>').prepend(elementos)
+        $('#conteudo2').append(lista)
+
+        // Conteudo 3
+        $('#conteudo3').append('<h1>1</h1>').append('<h1>2</h1>').prepend('<h1>0</h1>')
+
+        $('#conteudo3').html('<h1>123</h1>') // Substitui o componente por outro
+
+        $('#conteudo3').html('<h1>123</h1>') // Insere o texto dentro da DIV
+
+        // Alterando todos
+        $('div[id]').text('<strong>Todos!</strong>')
+
     </script>
 </body>

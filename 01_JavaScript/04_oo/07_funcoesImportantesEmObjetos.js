@@ -32,10 +32,10 @@ console.log(Object.keys(pessoa));
 
 // Object.assign (ECMAScript 2015)
 
-const dest = {a: 1}
-const o1 = {b: 2};
-const oo2 = {c:3, a:4};
-const obj = Object.assign(dest, o1,o2); 
+const dest = { a: 1 }
+const o1 = { b: 2 };
+const oo2 = { c: 3, a: 4 };
+const obj = Object.assign(dest, o1, o2);
 
 Object.freeze(obj);
 obj.c = 1234;

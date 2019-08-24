@@ -1,0 +1,18 @@
+@import "../../assets/scss/styleSASS.scss";
+
+.aside-menu--button{
+    background-color: $primary-color;
+    width: 100%;
+    height: 100%;
+    box-shadow: $grey-700 0px 6px 0px 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .fa-bars{
+        color: $white-normal;
+    }
+
+    cursor: pointer;
+}

@@ -1,0 +1,21 @@
+@import "../../assets/scss/styleSASS.scss";
+
+.main{
+    margin-top: 6px;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    background-color: $grey-100;
+
+    &__container{
+        height: 100%;
+        width: 100%;   
+        display: block;     
+    }
+
+    @media(min-width: $lg){
+        &__container{
+            max-width: 1400px;
+        }
+    }
+}

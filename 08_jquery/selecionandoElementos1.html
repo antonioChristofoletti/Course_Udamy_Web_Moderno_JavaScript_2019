@@ -53,7 +53,35 @@
 
         $('li').addClass('destaque')
 
-        $['[wm-obrigatorio]'].removeClass('destaque')
+        $('[wm-obrigatorio]').removeClass('destaque')
+
+        $('li.opcional').removeClass('destaque')
+
+        $('div p span').addClass('destaque')
+
+        // Exclusivos Jquery
+
+        $('li:first').css('border', '3px solid yellow')
+
+        $('li:odd').css('border', '10px solid orange')
+
+        $('li:gt(2)').css('border', '10px solid grey') // maior que determinado index
+
+        $('li:not(:last)').css('border','none')
+
+        $('li:contains("r")').css('background-color','black')
+
+        $('form *').hide()
+
+        $('form :text').show()
+
+        $('form :password').show()
+
+        $('form :checkbox').show()
+
+        $('form :radio').show();
+
+        $('form :file').show();
         
     </script>
 </body>

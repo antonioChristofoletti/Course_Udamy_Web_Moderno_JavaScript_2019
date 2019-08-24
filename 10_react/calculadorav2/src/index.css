@@ -1,0 +1,11 @@
+@font-face{
+    font-family: "Roboto-mono";
+    src: url('./fonts/RobotoMono-Thin.ttf')
+}
+
+*{
+    font-family: "Roboto-mono";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}

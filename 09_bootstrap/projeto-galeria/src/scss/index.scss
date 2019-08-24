@@ -1,0 +1,6 @@
+@import "~bootstrap/scss/bootstrap"; // tá importando tudo, mas nao precisaria
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+@import "custom";
