@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Componente</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+
+<body class="exercicio">
+
+    <div id="app">
+        <custonButton brincando='eba'></custonButton>
+
+    </div>
+
+    <script>
+
+
+        Vue.component('custonButton', {
+            props: ['brincando'],
+            data: function () {
+                return {
+                    contador: 0
+                }
+            },
+            template: `
+                <button> {{brincando}} </button>
+            `,
+            methods: {
+                click() {
+                    this.contador++;
+                }
+            }
+        })
+
+        new Vue({
+            el: "app"
+        })
+    </script>
+</body>
+
+</html>
