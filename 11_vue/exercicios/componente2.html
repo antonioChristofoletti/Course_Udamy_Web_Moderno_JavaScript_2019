@@ -11,32 +11,40 @@
 <body class="exercicio">
 
     <div id="app">
-        <custonButton brincando='eba'></custonButton>
-
+        <contador></contador>
+        <contador></contador>
+        <contador></contador>
     </div>
 
     <script>
 
-
-        Vue.component('custonButton', {
-            props: ['brincando'],
+        Vue.component('contador', {
             data: function () {
                 return {
                     contador: 0
                 }
             },
-            template: `
-                <button> {{brincando}} </button>
-            `,
             methods: {
-                click() {
+                add() {
                     this.contador++;
                 }
-            }
+            },
+            template: `
+                <div>
+                    <span> {{ contador }} </span>
+                    <button @click='add'>+1</button>
+                </div>
+            `
         })
 
+
+
         new Vue({
-            el: "app"
+            el: "#app",
+            data: {
+                nome: "Maria",
+                link: "https://youtube.com/cod3rcursos"
+            }
         })
     </script>
 </body>

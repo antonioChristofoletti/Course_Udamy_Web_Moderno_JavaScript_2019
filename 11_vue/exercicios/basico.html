@@ -30,12 +30,12 @@
                 desconto: 0.15
             },
             methods: {
-                horaCerta(){
+                horaCerta() {
                     return new Date().toLocaleString()
                 }
             },
-            computed:{
-                precoComDesconto(){
+            computed: {
+                precoComDesconto() {
                     return this.preco * (1 - this.desconto)
                 }
             }
