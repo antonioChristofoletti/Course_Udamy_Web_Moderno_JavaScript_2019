@@ -1,5 +1,9 @@
 <template>
-  <button class="button" :class="{btn_span2, btn_span3, btn_greyColor}">{{label}}</button>
+  <button
+    @click="$emit('onClick', label)"
+    class="button"
+    :class="{btn_span2, btn_span3, btn_greyColor}"
+  >{{label}}</button>
 </template>
 
 <script>
@@ -19,16 +23,15 @@ export default {
   padding: 0;
   background-color: #fff;
   border: 1px solid #37474f;
-
   font-size: 1.5em;
 }
 
-.button:active{
+.button:active {
   background-color: #e0e0e0;
 }
 
-.button:focus{
-outline: 0;
+.button:focus {
+  outline: 0;
 }
 
 .btn_span2 {
@@ -40,11 +43,10 @@ outline: 0;
 }
 
 .btn_greyColor {
-  background-color: #90F2CA;
+  background-color: #90f2ca;
 }
 
-.btn_greyColor:active{
-  background-color: #7DF0C1;
+.btn_greyColor:active {
+  background-color: #7df0c1;
 }
-
 </style>

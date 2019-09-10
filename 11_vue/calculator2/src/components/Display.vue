@@ -1,9 +1,13 @@
 <template>
-  <div class="display">654654</div>
+  <div class="display">{{displayValue}}</div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    displayValue: ""
+  }
+};
 </script>
 
 <style>
@@ -11,7 +15,7 @@ export default {};
   grid-column: span 4;
   background-color: #37474f;
   color: #fff;
-  font-size: 2.4em;
+  font-size: 1.8em;
   display: flex;
   justify-content: flex-end;
   align-items: center;
