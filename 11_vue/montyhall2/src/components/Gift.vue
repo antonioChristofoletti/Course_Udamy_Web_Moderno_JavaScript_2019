@@ -37,4 +37,9 @@ export default {
     position: absolute;
   }
 }
+
+.gift--hided{
+  display: none;
+}
+
 </style>
