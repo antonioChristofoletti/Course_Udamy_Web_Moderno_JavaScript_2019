@@ -3,10 +3,10 @@
     :class="{'door': true,'door--selected': isDoorSelected && !showGift}"
     @click="isDoorSelected = !isDoorSelected"
   >
-    <div class="door__content">
+    <div :class="{'door__content': true, 'door__content--hided': false}">
       <div class="door__content__number">{{ doorNumber}}</div>
       <div
-        :class="{door__content__knob: true,'door__content__knob--selected': isDoorSelected}"
+        :class="{'door__content__knob': true,'door__content__knob--selected': isDoorSelected}"
         @click="showGift=true"
       ></div>
       <Gift :class="{'gift--hided': !hasGift || !showGift}" />
@@ -50,6 +50,18 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    &--hided {
+      background-color: transparent;
+
+      .door__content__number {
+        display: none;
+      }
+
+      .door__content__knob {
+        display: none;
+      }
+    }
 
     &__number {
       color: white;
